@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple quiz</title>
+
+  <style>
+   .container{
+    border: 3px solid black;
+    border-radius: 10px;
+    width: 60%;
+    padding: 20px;
+    display: none;
+   }
+   button{
+    margin-top: 10px;
+   }
+  </style>
+
+</head>
+<body>
+
+  <div class="container">
+    1.what is 100+200?<hr>
+    <input type="radio" name="question1" id="correct1">300<br> 
+    <input type="radio" name="question1">400<br>
+    <input type="radio" name="question1">450<br> 
+    <input type="radio" name="question1">350<br> <br>
+    <button class="next" onclick="next(1)">NEXT</button>
+  </div>
+
+  <div class="container">
+    2.what is 300+110?<hr>
+    <input type="radio" name="question2">300<br> 
+    <input type="radio" name="question2" id="correct2">410<br>
+    <input type="radio" name="question2">450<br> 
+    <input type="radio" name="question2">350<br><br>
+    <button class="next" onclick="next(2)">NEXT</button>
+  </div>
+
+  <div class="container">
+    3.what is 300+150?<hr>
+    <input type="radio" name="question3">300<br> 
+    <input type="radio" name="question3">400<br>
+    <input type="radio" name="question3" id="correct3">450<br> 
+    <input type="radio" name="question3">350<br><br>
+    <button class="next" onclick="next(3)">NEXT</button>
+  </div>
+
+  <div class="container">
+    4.what is 200+200?<hr>
+    <input type="radio" name="question4">300<br> 
+    <input type="radio" name="question4" id="correct4">400<br>
+    <input type="radio" name="question4">450<br> 
+    <input type="radio" name="question4">350<br><br>
+    <button onclick="result()">SUBMIT QUIZ</button>
+  </div>
+
+  <script>
+    document.getElementsByClassName("container")[0].style.display ="block";
+
+    function next(id){
+      document.getElementsByClassName("container")[id-1].style.display = "none";
+      document.getElementsByClassName("container")[id].style.display = "block";
+    }
+
+    function result() {
+      var score = 0;
+      if (document.getElementById('correct1').checked) {
+        score++;
+      }
+      if (document.getElementById('correct2').checked) {
+        score++;
+      }
+      if (document.getElementById('correct3').checked) {
+        score++;
+      }
+      if (document.getElementById('correct4').checked) {
+        score++; 
+      }
+
+      alert("your score is: " +  score + "/4");
+    }
+
+  </script>
+
+</body>
+</html>
